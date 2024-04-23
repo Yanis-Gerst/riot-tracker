@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.api.models.accountModel import get_account_data
+from src.api.models.accountModel import get_account_data, get_riot_account
 
 
 # 0GyFmfQmOrgt20N1ibvVuYcBgLhlrM3g5_5kQI9Z-z9pxu5AZB2e_-4DOEqcjcpBHh3JRBe55j9dNg
@@ -8,7 +8,10 @@ router = APIRouter()
 
 @router.get("/api/account/{riotId}/{tagLine}")
 def read_accont(riotId: str, tagLine: str):
-    #accountData = get_account_data(riotId, tagLine)
+    accountData = get_account_data(riotId, tagLine)
+    print(accountData)   
+
+    
     return {
         "player": {
             "icon": "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/profileicon/3350.png",

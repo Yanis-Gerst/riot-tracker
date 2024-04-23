@@ -30,8 +30,9 @@ def get_account_data(riotId: str, tagLine: str):
     summonerData = get_summoner_data(accountPuuid).json()
     currentLolVersion = get_lol_current_version()
     summonerData["profileIconSrc"] =  get_profile_img_src(summonerData["profileIconId"], currentLolVersion)
+    summonerData["name"] = riotId + "#" + tagLine
     remove_useless_data(summonerData)
-    matchData = get_player_matches_data(accountPuuid)
+    return summonerData
 
 
  

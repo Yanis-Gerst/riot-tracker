@@ -1,5 +1,4 @@
 import { IOverallStats } from "@/types/player";
-import Image from "next/image";
 import React from "react";
 
 interface Props {
@@ -34,9 +33,17 @@ const StatCard: React.FC<Props> = ({ statName, value }) => {
           {value}
         </p>
       ) : statName === "averageKDA" ? (
-        <p className="text-xs text-slate-500">
-          {value.kill} | {value.death} | {value.assist}
-        </p>
+        <div className="flex gap-2 items-center">
+          {" "}
+          <p className="font-bold text-sm">
+            {(parseInt(value.kill) + parseInt(value.assist)) /
+              parseInt(value.death)}
+          </p>
+          <div className="h-[2px] w-[2px] rounded-full bg-slate-500"></div>
+          <p className="text-xs text-slate-500">
+            {value.kill} | {value.death} | {value.assist}
+          </p>{" "}
+        </div>
       ) : statName === "mainChampions" ? (
         <div className="flex gap-1">
           {value.map((championSrc: string) => (

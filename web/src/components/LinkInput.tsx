@@ -30,7 +30,7 @@ const LinkInput: React.FC<Props> = ({ ...args }) => {
 
   const navigateToAccountPage = (playerName: string) => {
     const [gameName, tagLine] = playerName.split("#");
-    router.push(`account/${gameName};${tagLine}`);
+    router.push(`/account/${gameName};${tagLine}`);
   };
   return (
     <Form {...form}>

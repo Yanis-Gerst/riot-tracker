@@ -35,7 +35,13 @@ const ChampionStats: React.FC<Props> = ({ championStats }) => {
           {championStats.kda.assists}
         </p>
         <p>
-          3.39 <span className="text-slate-400 font-bold">KDA</span>
+          {`${
+            (parseInt(championStats.kda.kill) +
+              parseInt(championStats.kda.assists)) /
+            parseInt(championStats.kda.death)
+          }
+          `}{" "}
+          <span className="text-slate-400 font-bold">KDA</span>
         </p>
       </div>
       <div className="flex flex-col items-end">
